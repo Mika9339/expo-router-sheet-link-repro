@@ -31,7 +31,7 @@ For comparison, force-stop the app and open the same link from a cold start.
 
 ## Expected
 
-In both cases the sheet opens over list 7 (the `anchor`), and Back shows "List id: 7". That is what happens on a cold start, and what SDK 57 did for a link that arrived while the app ran.
+In both cases the sheet opens over list 7 (the `anchor`), and Back shows "List id: 7". That is what happens on a cold start.
 
 ## Actual
 
@@ -41,9 +41,15 @@ In both cases the sheet opens over list 7 (the `anchor`), and Back shows "List i
 
 ![link while running vs. cold start](shots/compare.png)
 
+## SDK 57
+
+The same app on SDK 57 (`expo` 57.0.31, `expo-router` 57.0.29, `react-native` 0.86.3), release build, link while the app runs: the sheet does open over the list page, but the page gets no params ("List id: undefined"). So the missing anchor is new in SDK 58, the missing anchor params are older.
+
+![SDK 57: anchor present, params missing](shots/sdk57.png)
+
 ## Test
 
-`npm test` runs `__tests__/sheetLink.test.tsx` with `expo-router/testing-library`. It feeds the link through a `+native-intent` `legacy_subscribe` listener, the path the OS uses for a link while the app runs:
+`npm test` (SDK 58) runs `__tests__/sheetLink.test.tsx` with `expo-router/testing-library`. It feeds the link through a `+native-intent` `legacy_subscribe` listener, the path the OS uses for a link while the app runs:
 
 ```
 ✓ cold start: opens the sheet over its anchor, which gets its params (works)
