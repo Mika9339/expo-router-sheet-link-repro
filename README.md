@@ -35,11 +35,11 @@ In both cases the sheet opens over list 7 (the `anchor`), and Back shows "List i
 
 ## Actual
 
-| link while the app runs | Back | cold start | Back |
-|---|---|---|---|
-| the item opens as a full-screen page instead of a sheet, without list 7 beneath it | lands on Home | the sheet opens over list 7 | "List id: 7" |
+Link while the app runs (from Home): the item opens as a full-screen page instead of a sheet, with nothing beneath it. Back lands on Home (screens 1 and 2).
 
-![link while running vs. cold start](shots/compare.png)
+The same link from a cold start works: the sheet opens over list 7, and Back shows "List id: 7" (screens 3 and 4).
+
+![link while the app runs (1, 2) vs. cold start (3, 4)](shots/compare.png)
 
 ## SDK 57
 
