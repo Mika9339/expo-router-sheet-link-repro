@@ -21,7 +21,7 @@ npm install
 npx expo run:android --variant release
 ```
 
-1. With the app running on Home, open the link:
+1. Start the app; it shows Home. Start from Home, not from the list page: if list 7 is already open, the sheet opens over it as expected. With the app running on Home, open the link:
    ```sh
    adb shell am start -a android.intent.action.VIEW -d "exporoutersheetlinkrepro://lists/7/item/42" dev.repro.exporoutersheetlink
    ```
@@ -37,7 +37,7 @@ In both cases the sheet opens over list 7 (the `anchor`), and Back shows "List i
 
 | link while the app runs | Back | cold start | Back |
 |---|---|---|---|
-| the item opens on its own, without list 7 beneath it | lands on Home | the sheet opens over list 7 | "List id: 7" |
+| the item opens as a full-screen page instead of a sheet, without list 7 beneath it | lands on Home | the sheet opens over list 7 | "List id: 7" |
 
 ![link while running vs. cold start](shots/compare.png)
 
